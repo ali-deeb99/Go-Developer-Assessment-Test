@@ -49,47 +49,5 @@ string s;
         }
         cout << res;
     }
-
-
-    /*
-int n,k,sum=0;
-cin>>n>>k;
-
-vector<int>nums(n);
-
-for(int i=0;i<n;++i)
-    cin>>nums[i];
-
-
-vector<int>ans(n-k+1);
-
-deque<int>dq;
-
-
-dq.push_back(nums[0]);
-
-for(int i=1;i<k;++i){
-    while(!dq.empty()&&nums[i]>dq.back()){
-        dq.pop_back();
-    }
-    dq.push_back(nums[i]);
-}
-
-ans[0]=dq.front();
-int j=1;
-
-for(int i=k;i<n;++i){
-if(int(dq.size())==k)
-dq.pop_front();
-while(!dq.empty()&&nums[i]>dq.back()){
-    dq.pop_back();
-}
-dq.push_back(nums[i]);
-ans[j++]=dq.front();
-}
-for(int i=0;i<n-k+1;++i)
-    cout<<ans[i]<<"\n";
-*/
 return 0;
-
 }
