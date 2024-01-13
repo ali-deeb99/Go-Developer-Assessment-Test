@@ -1,0 +1,18 @@
+I have used this website to test my query 
+https://www.w3schools.com/mysql/trymysql.asp?filename=trysql_editor
+
+SELECT
+    basic.CustomerID,
+    CASE
+        WHEN MOD(basic.CustomerID, 2) = 1 AND basic.CustomerID != (SELECT MAX(CustomerID) FROM Customers) THEN
+            (SELECT c1.CustomerName FROM Customers c1 WHERE c1.CustomerID = basic.CustomerID + 1)
+        WHEN MOD(basic.CustomerID, 2) = 0 THEN
+            (SELECT c2.CustomerName FROM Customers c2 WHERE c2.CustomerID = basic.CustomerID - 1)
+        ELSE
+            basic.CustomerName
+    END AS student
+FROM
+    Customers basic;
+
+
+The table name insdie the database in the wb3school website is called "Customers" it has many columns i used two only "CustomerID" and "CustomerName"

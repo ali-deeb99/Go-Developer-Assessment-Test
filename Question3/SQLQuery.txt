@@ -1,0 +1,12 @@
+SELECT
+    basic.id,
+    CASE
+        WHEN MOD(basic.id, 2) = 1 AND basic.id != (SELECT MAX(id) FROM Seat) THEN
+            (SELECT c1.student FROM Seat c1 WHERE c1.id = basic.id + 1)
+        WHEN MOD(basic.id, 2) = 0 THEN
+            (SELECT c2.student FROM Seat c2 WHERE c2.id = basic.id - 1)
+        ELSE
+            basic.student
+    END AS student1
+FROM
+    Seat basic;
